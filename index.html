@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An accessible keyboard-controlled drum kit.">
+  <title>HW2 - Drum Kit Engine</title>
+</head>
+<body>
+  <header>
+    <h1>Drum Kit Engine</h1>
+    <p>Use your keyboard or activate a pad to play a sound.</p>
+  </header>
+
+  <main id="main-content">
+    <section aria-labelledby="drum-kit-heading">
+      <h2 id="drum-kit-heading">Drum Pads</h2>
+
+      <ul class="drum-kit">
+        <li>
+          <button
+            type="button"
+            class="drum-pad"
+            data-key="a"
+            data-sound="sounds/kick.wav"
+            aria-label="Play kick drum, keyboard key A">
+            Kick
+            <span aria-hidden="true">A</span>
+          </button>
+        </li>
+
+        <li>
+          <button
+            type="button"
+            class="drum-pad"
+            data-key="s"
+            data-sound="sounds/snare.wav"
+            aria-label="Play snare drum, keyboard key S">
+            Snare
+            <span aria-hidden="true">S</span>
+          </button>
+        </li>
+
+        <li>
+          <button
+            type="button"
+            class="drum-pad"
+            data-key="d"
+            data-sound="sounds/hihat.wav"
+            aria-label="Play hi-hat, keyboard key D">
+            Hi-Hat
+            <span aria-hidden="true">D</span>
+          </button>
+        </li>
+
+        <li>
+          <button
+            type="button"
+            class="drum-pad"
+            data-key="f"
+            data-sound="sounds/tom.wav"
+            aria-label="Play tom drum, keyboard key F">
+            Tom
+            <span aria-hidden="true">F</span>
+          </button>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>HW2 - Web Application Development</p>
+  </footer>
+</body>
+</html>
