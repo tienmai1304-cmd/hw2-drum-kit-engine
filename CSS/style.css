@@ -1,0 +1,114 @@
+/* T-03: Design tokens and responsive drum kit layout */
+
+:root {
+  color-scheme: light;
+  --color-background: #f1f5f9;
+  --color-surface: #ffffff;
+  --color-text: #0f172a;
+  --color-muted: #475569;
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-border: #cbd5e1;
+  --color-focus: #ea580c;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --radius-card: 0.75rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+header,
+main,
+footer {
+  width: min(100% - 2rem, 960px);
+  margin-inline: auto;
+}
+
+header {
+  padding-block: 2rem;
+  text-align: center;
+}
+
+header p,
+footer {
+  color: var(--color-muted);
+}
+
+main {
+  padding-block: var(--space-3);
+}
+
+section {
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+
+.drum-kit {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+  padding: 0;
+  margin: var(--space-3) 0 0;
+  list-style: none;
+}
+
+.drum-pad {
+  display: flex;
+  min-height: 112px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-background);
+  color: var(--color-text);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.drum-pad span {
+  color: var(--color-accent);
+  font-size: 1.25rem;
+}
+
+.drum-pad:hover {
+  border-color: var(--color-accent);
+}
+
+.drum-pad:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+footer {
+  padding-block: var(--space-3);
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .drum-kit {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
