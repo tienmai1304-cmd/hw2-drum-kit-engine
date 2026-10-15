@@ -1,13 +1,15 @@
 
 /**
  * T-05: Bind drum pads to clicks and keyboard events.
+ * T-06: Record triggered drum events in a FIFO queue.
  * Audio playback remains delegated to AudioEngine.
  */
 
 const drumPads = document.querySelectorAll(".drum-pad");
 
-function playPad(pad) {
+function playPad(pad, inputType) {
   const soundPath = pad.dataset.sound;
+  const key = pad.dataset.key;
 
   if (!soundPath) {
     console.error("Drum pad is missing its data-sound attribute.");
@@ -15,11 +17,17 @@ function playPad(pad) {
   }
 
   AudioEngine.play(soundPath);
+
+  BeatRecorder.record({
+    key,
+    sound: soundPath,
+    input: inputType,
+  });
 }
 
 drumPads.forEach((pad) => {
   pad.addEventListener("click", () => {
-    playPad(pad);
+    playPad(pad, "click");
   });
 });
 
@@ -38,5 +46,5 @@ document.addEventListener("keydown", (event) => {
     return;
   }
 
-  playPad(matchingPad);
+  playPad(matchingPad, "keydown");
 });
